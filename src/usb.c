@@ -455,12 +455,12 @@ static int usb_device_add(libusb_device* dev)
 			libusb_free_config_descriptor(config);
 		}
 
-		usbmuxd_log(LL_INFO, "Setting configuration for device %d-%d, from %d to %d", bus, address, current_config, desired_config);
-		if((res = libusb_set_configuration(handle, desired_config)) != 0) {
-			usbmuxd_log(LL_WARNING, "Could not set configuration %d for device %d-%d: %s", desired_config, bus, address, libusb_error_name(res));
-			//libusb_close(handle);
-			//return -1;
-		}
+		// usbmuxd_log(LL_INFO, "Setting configuration for device %d-%d, from %d to %d", bus, address, current_config, desired_config);
+		// if((res = libusb_set_configuration(handle, desired_config)) != 0) {
+		// 	usbmuxd_log(LL_WARNING, "Could not set configuration %d for device %d-%d: %s", desired_config, bus, address, libusb_error_name(res));
+		// 	libusb_close(handle);
+		// 	return -1;
+		// }
 	}
 
 	struct libusb_config_descriptor *config;
