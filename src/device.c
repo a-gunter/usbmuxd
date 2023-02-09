@@ -933,9 +933,9 @@ int device_get_list(int include_hidden, struct device_info **devices)
 {
 	int count = 0;
 	struct collection dev_list = {NULL, 0};
-	//mutex_lock(&device_list_mutex);
+	mutex_lock(&device_list_mutex);
 	collection_copy(&dev_list, &device_list);
-	//mutex_unlock(&device_list_mutex);
+	mutex_unlock(&device_list_mutex);
 
 	*devices = malloc(sizeof(struct device_info) * dev_list.capacity);
 	struct device_info *p = *devices;
