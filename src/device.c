@@ -941,7 +941,7 @@ int device_get_list(int include_hidden, struct device_info **devices)
 	struct device_info *p = *devices;
 
 	FOREACH(struct mux_device *dev, &dev_list) {
-		//if((dev->state == MUXDEV_ACTIVE) && (include_hidden || dev->visible)) {
+		if((dev->state == MUXDEV_ACTIVE) && (include_hidden || dev->visible)) {
 			p->id = dev->id;
 			p->serial = usb_get_serial(dev->usbdev);
 			p->location = usb_get_location(dev->usbdev);
@@ -949,7 +949,7 @@ int device_get_list(int include_hidden, struct device_info **devices)
 			p->speed = usb_get_speed(dev->usbdev);
 			count++;
 			p++;
-		//}
+		}
 	} ENDFOREACH
 
 	collection_free(&dev_list);

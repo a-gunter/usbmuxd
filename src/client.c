@@ -704,7 +704,6 @@ static int handle_command(struct mux_client *client, struct usbmuxd_header *hdr)
 					plist_free(dict);
 					return -1;
 				}
-				usbmuxd_log(LL_DEBUG, "Client %d sending message %s", client->fd, message);
 				update_client_info(client, dict);
 				if (!strcmp(message, "Listen")) {
 					free(message);
